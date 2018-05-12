@@ -1,6 +1,5 @@
 {
   "name": "SemanticModel",
-  "id": "SemanticModel",
   "compatibilityLevel": 1200,
   "model": {
     "name": "Adventure Works Internet Sales Model",
@@ -8,8 +7,9 @@
     "dataSources": [
       {
         "name": "Adventure Works DB from SQL",
-        "connectionString": "Provider=SQLNCLI11;Data Source=localhost;Initial Catalog=AdventureWorksDW2014;Integrated Security=SSPI;Persist Security Info=false",
-        "impersonationMode": "impersonateCurrentUser",
+        "connectionString": "Provider=SQLNCLI11;Data Source=RAN-THINKPAD\\TABULARMODEL;Initial Catalog=AdventureWorksDW2014;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "wangr",
         "annotations": [
           {
             "name": "ConnectionEditUISource",
@@ -6184,6 +6184,167 @@
             ]
           }
         ]
+      },
+      {
+        "name": "SalesTerritory",
+        "columns": [
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SalesTerritoryRegion",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryRegion",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SalesTerritoryCountry",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryCountry",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "SalesTerritoryGroup",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryGroup",
+            "sourceProviderType": "VarChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Query",
+            "dataView": "full",
+            "source": {
+              "query": [
+                "SELECT",
+                "  DimSalesTerritory.SalesTerritoryKey",
+                "  ,DimSalesTerritory.SalesTerritoryRegion",
+                "  ,DimSalesTerritory.SalesTerritoryCountry",
+                "  ,DimSalesTerritory.SalesTerritoryGroup",
+                "  ,DimSalesTerritory.SalesTerritoryImage",
+                "FROM",
+                "  DimSalesTerritory"
+              ],
+              "dataSource": "Adventure Works DB from SQL"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT",
+                  "  DimSalesTerritory.SalesTerritoryKey",
+                  "  ,DimSalesTerritory.SalesTerritoryRegion",
+                  "  ,DimSalesTerritory.SalesTerritoryCountry",
+                  "  ,DimSalesTerritory.SalesTerritoryGroup",
+                  "  ,DimSalesTerritory.SalesTerritoryImage",
+                  "FROM",
+                  "  DimSalesTerritory</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState><DesignerState><UseGenericDesigner>false</UseGenericDesigner><InternalDesignerState><QueryDefinition xmlns=\"http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational\"><SelectedColumns><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryKey\" /><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryRegion\" /><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryCountry\" /><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryGroup\" /><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryImage\" /></SelectedColumns></QueryDefinition></InternalDesignerState></DesignerState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": [
+              "SELECT",
+              "  DimSalesTerritory.SalesTerritoryKey",
+              "  ,DimSalesTerritory.SalesTerritoryRegion",
+              "  ,DimSalesTerritory.SalesTerritoryCountry",
+              "  ,DimSalesTerritory.SalesTerritoryGroup",
+              "  ,DimSalesTerritory.SalesTerritoryImage",
+              "FROM",
+              "  DimSalesTerritory"
+            ]
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Query"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT",
+              "  DimSalesTerritory.SalesTerritoryKey",
+              "  ,DimSalesTerritory.SalesTerritoryRegion",
+              "  ,DimSalesTerritory.SalesTerritoryCountry",
+              "  ,DimSalesTerritory.SalesTerritoryGroup",
+              "  ,DimSalesTerritory.SalesTerritoryImage",
+              "FROM",
+              "  DimSalesTerritory</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState><DesignerState><UseGenericDesigner>false</UseGenericDesigner><InternalDesignerState><QueryDefinition xmlns=\"http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational\"><SelectedColumns><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryKey\" /><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryRegion\" /><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryCountry\" /><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryGroup\" /><ColumnExpression ColumnOwner=\"DimSalesTerritory\" ColumnName=\"SalesTerritoryImage\" /></SelectedColumns></QueryDefinition></InternalDesignerState></DesignerState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "EmployeeSecurity",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "EmployeeId",
+            "dataType": "int64",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[EmployeeId]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "SalesTerritoryId",
+            "dataType": "int64",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[SalesTerritoryId]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "FirstName",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[FirstName]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "LastName",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[LastName]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "LoginId",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[LoginId]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "EmployeeSecurity",
+            "source": {
+              "type": "calculated",
+              "expression": [
+                "DataTable(\"EmployeeId\", INTEGER,",
+                "\"SalesTerritoryId\", INTEGER,",
+                "\"FirstName\", STRING,",
+                "\"LastName\", STRING,",
+                "\"LoginId\", STRING,",
+                "{",
+                "\t{1,2,\"Ran\",\"Wang\",\"RAN-THINKPAD\\wangr\"},",
+                "\t{1,3,\"Ran\",\"Wang\",\"RAN-THINKPAD\\wangr\"},",
+                "\t{2,4,\"<user first name>\",\"<user last name>\",\"<domain\\username>\"},",
+                "\t{3,5,\"<user first name>\",\"<user last name>\",\"<domain\\username>\"}}",
+                ")"
+              ]
+            }
+          }
+        ]
       }
     ],
     "relationships": [
@@ -6243,6 +6404,21 @@
         "fromColumn": "Ship Date",
         "toTable": "Date",
         "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "802c64b6-62a3-4cfa-804b-5599c5a9025a",
+        "fromTable": "Geography",
+        "fromColumn": "Sales Territory Id",
+        "toTable": "SalesTerritory",
+        "toColumn": "SalesTerritoryKey"
+      },
+      {
+        "name": "5fb47a44-605c-46f9-8e60-94eaf6b3b561",
+        "fromTable": "Internet Sales",
+        "fromColumn": "Sales Territory Id",
+        "toTable": "SalesTerritory",
+        "toColumn": "SalesTerritoryKey",
         "isActive": false
       }
     ],
@@ -6608,6 +6784,26 @@
       {
         "name": "Internet Sales Administrator",
         "modelPermission": "administrator"
+      },
+      {
+        "name": "Sales Employees by Territory",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "wangr",
+            "memberId": "S-1-5-21-3678065176-530550859-4219128014-1001"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "SalesTerritory",
+            "filterExpression": "'SalesTerritory'[SalesTerritoryKey]=LOOKUPVALUE('EmployeeSecurity'[SalesTerritoryId],'EmployeeSecurity'[LoginId],USERNAME(),EmployeeSecurity[SalesTerritoryId],SalesTerritory[SalesTerritoryKey])"
+          },
+          {
+            "name": "EmployeeSecurity",
+            "filterExpression": "FALSE()"
+          }
+        ]
       }
     ],
     "annotations": [
@@ -6616,5 +6812,6 @@
         "value": "400"
       }
     ]
-  }
+  },
+  "id": "SemanticModel"
 }

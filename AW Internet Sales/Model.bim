@@ -1,15 +1,15 @@
 {
   "name": "SemanticModel",
-  "id": "SemanticModel",
-  "compatibilityLevel": 1200,
+  "compatibilityLevel": 1400,
   "model": {
     "name": "Adventure Works Internet Sales Model",
     "culture": "en-US",
     "dataSources": [
       {
         "name": "Adventure Works DB from SQL",
-        "connectionString": "Provider=SQLNCLI11;Data Source=localhost;Initial Catalog=AdventureWorksDW2014;Integrated Security=SSPI;Persist Security Info=false",
-        "impersonationMode": "impersonateCurrentUser",
+        "connectionString": "Provider=SQLNCLI11.1;Data Source=RAN-THINKPAD\\TABULARMODEL;Persist Security Info=False;Integrated Security=SSPI;Initial Catalog=AdventureWorksDW2014",
+        "impersonationMode": "impersonateAccount",
+        "account": "wangr",
         "annotations": [
           {
             "name": "ConnectionEditUISource",
@@ -4973,6 +4973,19 @@
       },
       {
         "name": "Internet Sales",
+        "defaultDetailRowsDefinition": {
+          "expression": [
+            "SELECTCOLUMNS('Internet Sales',",
+            "\"Sales Order Number\", 'Internet Sales'[Sales Order Number],",
+            "\"Customer First Name\", RELATED(Customer[First Name]),",
+            "\"Customer Last Name\", RELATED(Customer[Last Name]),",
+            "\"City\", RELATED(Geography[City]),",
+            "\"Order Date\", 'Internet Sales'[Order Date],",
+            "\"Internet Total Sales\", [Internet Total Sales]",
+            ") ",
+            ""
+          ]
+        },
         "columns": [
           {
             "name": "Product Id",
@@ -5546,6 +5559,19 @@
             "name": "Internet Total Sales",
             "expression": "SUM([Sales Amount])",
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "detailRowsDefinition": {
+              "expression": [
+                "SELECTCOLUMNS(",
+                "'Internet Sales',",
+                "\"Sales Order Number\", 'Internet Sales'[Sales Order Number],",
+                "\"Customer First Name\", RELATED(Customer[First Name]),",
+                "\"Customer Last Name\", RELATED(Customer[Last Name]),",
+                "\"City\", RELATED(Geography[City]),",
+                "\"Order Date\",'Internet Sales'[Order Date],",
+                "\"Internet Total Sales\", [Internet Total Sales]",
+                ")"
+              ]
+            },
             "annotations": [
               {
                 "name": "Format",
@@ -6613,8 +6639,9 @@
     "annotations": [
       {
         "name": "ClientCompatibilityLevel",
-        "value": "400"
+        "value": "500"
       }
     ]
-  }
+  },
+  "id": "SemanticModel"
 }

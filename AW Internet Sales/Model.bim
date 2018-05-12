@@ -6604,6 +6604,38 @@
             }
           }
         ],
+        "hierarchies": [
+          {
+            "name": "Organization",
+            "levels": [
+              {
+                "name": "Level1",
+                "ordinal": 0,
+                "column": "Level1"
+              },
+              {
+                "name": "Level2",
+                "ordinal": 1,
+                "column": "Level2"
+              },
+              {
+                "name": "Level5",
+                "ordinal": 2,
+                "column": "Level5"
+              },
+              {
+                "name": "Level3",
+                "ordinal": 3,
+                "column": "Level3"
+              },
+              {
+                "name": "Level4",
+                "ordinal": 4,
+                "column": "Level4"
+              }
+            ]
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",

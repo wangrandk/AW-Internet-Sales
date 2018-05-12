@@ -6589,8 +6589,9 @@
           {
             "type": "calculated",
             "name": "Level5",
-            "dataType": "int64",
-            "isDataTypeInferred": true
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1))"
           }
         ],
         "partitions": [

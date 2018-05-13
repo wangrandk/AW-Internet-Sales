@@ -1,6 +1,6 @@
 {
   "name": "SemanticModel",
-  "compatibilityLevel": 1200,
+  "compatibilityLevel": 1400,
   "model": {
     "name": "Adventure Works Internet Sales Model",
     "culture": "en-US",
@@ -6607,6 +6607,7 @@
         "hierarchies": [
           {
             "name": "Organization",
+            "hideMembers": "hideBlankMembers",
             "levels": [
               {
                 "name": "Level1",
@@ -6620,17 +6621,17 @@
               },
               {
                 "name": "Level5",
-                "ordinal": 2,
+                "ordinal": 4,
                 "column": "Level5"
               },
               {
                 "name": "Level3",
-                "ordinal": 3,
+                "ordinal": 2,
                 "column": "Level3"
               },
               {
                 "name": "Level4",
-                "ordinal": 4,
+                "ordinal": 3,
                 "column": "Level4"
               }
             ]
@@ -6877,6 +6878,12 @@
               "query": " SELECT [dbo].[FactResellerSales].* FROM [dbo].[FactResellerSales] ",
               "dataSource": "Adventure Works DB from SQL"
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "ResellerTotalSales",
+            "expression": "SUM([SalesAmount])"
           }
         ],
         "annotations": [
@@ -7395,7 +7402,7 @@
     "annotations": [
       {
         "name": "ClientCompatibilityLevel",
-        "value": "400"
+        "value": "500"
       }
     ]
   },
